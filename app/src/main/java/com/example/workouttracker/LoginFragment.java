@@ -1,0 +1,36 @@
+package com.example.workouttracker;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+
+public class LoginFragment extends Fragment {
+
+    public LoginFragment() {
+        super(R.layout.fragment_login);
+    }
+
+    // Add filler login for now
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button btnLogin = view.findViewById(R.id.btnLogin);
+
+        TextView textRegister = view.findViewById(R.id.registerLink);
+        textRegister.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigate(R.id.action_loginFragment_to_registerFragment);
+        });
+
+        btnLogin.setOnClickListener(v -> {
+            Toast.makeText(requireContext(), "Login clicked!", Toast.LENGTH_SHORT).show();
+        });
+    }
+}

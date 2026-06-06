@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="WTDatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/wt_orange</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorAccent">@color/wt_orange</item>
+        <item name="android:weekDayTextAppearance">@style/WTWeekdayText</item>
+        <item name="android:dateTextAppearance">@style/WTDateText</item>
+    </style>
+
+    <style name="WTWeekdayText">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="WTDateText">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

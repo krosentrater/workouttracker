@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">workouttracker</string>
+
+    <!-- Strings related to login -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="action_sign_in">Sign in or Register</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="gym_weights_background">Gym Weights Background</string>
+    <string name="register_here">Don\'t have an account? Register Here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="birthday">Birthday</string>
+    <string name="weight_lbs">Weight (lbs)</string>
+    <string name="height_inches">Height (inches)</string>
+    <string name="create_account">Create Account</string>
+    <string name="height">Height</string>
+    <string name="feet">Feet</string>
+    <string name="inches">Inches</string>
+    <string name="back_arrow">Back Arrow</string>
+</resources>

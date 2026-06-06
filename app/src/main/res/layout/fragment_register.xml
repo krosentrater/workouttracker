@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/workout_tracker_background"
+        android:contentDescription="@string/gym_weights_background" />
+
+    <!-- Gradient Overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_gradient_overlay" />
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="32dp">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp">
+
+                <!-- Back Arrow -->
+                <ImageButton
+                    android:id="@+id/backButtonLogin"
+                    android:layout_width="32dp"
+                    android:layout_height="45dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/back_arrow"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@android:color/white" />
+
+                <!-- Spacer to keep title centered -->
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Title -->
+                <TextView
+                    android:id="@+id/titleCreateAccount"
+                    android:text="@string/create_account"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <!-- Spacer to balance the layout -->
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <!-- Card Container -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/register_card_bg">
+
+                <!-- First Name -->
+                <EditText
+                    android:id="@+id/editFirstName"
+                    android:autofillHints="name"
+                    android:hint="@string/first_name"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#B3FFFFFF"
+                    android:background="@drawable/login_card_bg"
+                    android:padding="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Last Name -->
+                <EditText
+                    android:id="@+id/editLastName"
+                    android:autofillHints="name"
+                    android:hint="@string/last_name"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#B3FFFFFF"
+                    android:background="@drawable/login_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Username -->
+                <EditText
+                    android:id="@+id/editUsername"
+                    android:autofillHints="username"
+                    android:hint="@string/username"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#B3FFFFFF"
+                    android:background="@drawable/login_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Password -->
+                <EditText
+                    android:id="@+id/editPassword"
+                    android:autofillHints="password"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#B3FFFFFF"
+                    android:background="@drawable/login_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Birthday Label -->
+                <TextView
+                    android:text="@string/birthday"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Birthday Picker Wrapper -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_fade"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <DatePicker
+                        android:id="@+id/datePickerBirthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:spinnersShown="true"
+                        android:datePickerMode="spinner" />
+                </LinearLayout>
+
+                <!-- Height Label -->
+                <TextView
+                    android:id="@+id/textHeightLabel"
+                    android:text="@string/height"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <!-- Height Picker Wrapper -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_fade"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <!-- Feet Column -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_marginEnd="32dp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="@string/feet"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"/>
+
+                        <NumberPicker
+                            android:id="@+id/pickerFeet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+
+                    <!-- Inches Column -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="@string/inches"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="4dp" />
+
+                        <NumberPicker
+                            android:id="@+id/pickerInches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Weight -->
+                <EditText
+                    android:id="@+id/editWeight"
+                    android:autofillHints="weight"
+                    android:hint="@string/weight_lbs"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#B3FFFFFF"
+                    android:background="@drawable/login_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Create Account Button -->
+                <Button
+                    android:id="@+id/btnCreateAccount"
+                    android:text="@string/create_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:backgroundTint="#FF9800"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
+

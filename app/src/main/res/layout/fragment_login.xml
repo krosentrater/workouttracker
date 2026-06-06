@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background gym image -->
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/gym_weights_background"
+        android:scaleType="centerCrop"
+        android:src="@drawable/workout_tracker_background" />
+
+    <!-- Soft dark overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_gradient_overlay" />
+
+    <!-- Centered login card -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/workouttracker_logo"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/app_name"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@drawable/login_card_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editUsername"
+                android:autofillHints="username"
+                android:hint="@string/username"
+                android:background="@drawable/register_card_bg"
+                android:inputType="text"
+                android:textColor="@android:color/white"
+                android:textColorHint="#B3FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/editPassword"
+                android:autofillHints="password"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:background="@drawable/register_card_bg"
+                android:textColor="@android:color/white"
+                android:textColorHint="#B3FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:text="@string/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#FF9800"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/registerLink"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/register_here"
+                android:textColor="#B3FFFFFF"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
+
+
