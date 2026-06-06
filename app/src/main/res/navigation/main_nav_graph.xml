@@ -3,40 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
 
+    <!-- HOME -->
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.workouttracker.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login" >
-
-        <!-- Navigation from login screen to register screen -->
-    <action
-        android:id="@+id/action_loginFragment_to_registerFragment"
-        app:destination="@id/registerFragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
-
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.example.workouttracker.RegisterFragment"
-        android:label="Register" >
+        android:id="@+id/homeFragment"
+        android:name="com.example.workouttracker.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left" />
+            android:id="@+id/action_homeFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
+    <!-- WORKOUTS -->
+    <fragment
+        android:id="@+id/workoutsFragment"
+        android:name="com.example.workouttracker.WorkoutsFragment"
+        android:label="Workouts"
+        tools:layout="@layout/fragment_workouts" />
+
+    <!-- PROGRESS -->
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.example.workouttracker.ProgressFragment"
+        android:label="Progress"
+        tools:layout="@layout/fragment_progress" />
+
+    <!-- ACCOUNT -->
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.workouttracker.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" />
 
 </navigation>
+

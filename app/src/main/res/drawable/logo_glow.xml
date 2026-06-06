@@ -1,0 +1,20 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Soft glow -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="140dp" android:height="140dp"/>
+            <solid android:color="#33FF9800"/> <!-- 20% opacity orange -->
+            <corners android:radius="70dp"/>
+        </shape>
+    </item>
+
+    <!-- Centered logo -->
+    <item
+        android:gravity="center">
+        <bitmap
+            android:src="@drawable/workouttracker_logo"
+            android:gravity="center" />
+    </item>
+
+</layer-list>

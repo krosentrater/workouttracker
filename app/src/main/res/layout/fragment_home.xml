@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,24 +15,68 @@
         android:padding="16dp"
         android:paddingBottom="72dp">
 
-        <!-- Welcome -->
-        <TextView
-            android:id="@+id/textWelcome"
+        <!-- Header with logo-->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome back,"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp">
 
-        <TextView
-            android:id="@+id/textUserName"
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_glow"
+                android:contentDescription="@string/app_name" />
+
+        </RelativeLayout>
+
+        <!-- Welcome + Account Icon Row -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="User"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:layout_marginBottom="16dp" />
+            android:paddingBottom="16dp">
+
+            <!-- Welcome text -->
+            <LinearLayout
+                android:id="@+id/welcomeTextContainer"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome back,"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <!-- Account icon aligned to the right -->
+            <ImageButton
+                android:id="@+id/btnAccount"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/account_glow"
+                android:contentDescription="@string/account_page"
+                android:padding="4dp"
+                android:src="@drawable/ic_account_circle"
+                app:tint="@android:color/white" />
+
+        </RelativeLayout>
 
         <!-- Today summary card -->
         <LinearLayout
@@ -191,15 +236,4 @@
 
     </LinearLayout>
 
-    <!-- Bottom navigation bar -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="bottom"
-        android:background="#181818"
-        app:itemIconTint="@color/selector_bottom_nav"
-        app:itemTextColor="@color/selector_bottom_nav"
-        app:menu="@menu/menu_bottom_nav" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.core.widget.NestedScrollView>
