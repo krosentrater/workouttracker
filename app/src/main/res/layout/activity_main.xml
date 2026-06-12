@@ -19,11 +19,12 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="54dp"
         android:layout_gravity="bottom"
         android:background="#181818"
         app:itemIconSize="28dp"
-        app:itemRippleColor="@android:color/transparent"
+        style="@style/BottomNavStyle"
+        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@color/selector_bottom_nav"
         app:itemTextColor="@color/selector_bottom_nav"
         app:menu="@menu/menu_bottom_nav" />

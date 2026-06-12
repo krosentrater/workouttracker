@@ -2,19 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/homeFragment"
         android:title="@string/home"
         android:icon="@drawable/ic_home" />
 
     <item
-        android:id="@+id/nav_workouts"
+        android:id="@+id/workoutsFragment"
         android:title="@string/workouts"
         android:icon="@drawable/ic_fitness_center" />
 
     <item
-        android:id="@+id/nav_progress"
+        android:id="@+id/progressFragment"
         android:title="@string/progress"
         android:icon="@drawable/ic_progress" />
-
 </menu>
 

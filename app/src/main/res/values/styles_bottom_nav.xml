@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Clean, modern bottom nav style -->
+    <style name="BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+        <!-- Remove the weird Material active indicator -->
+        <item name="itemActiveIndicatorStyle">@null</item>
+
+        <!-- Remove ripple completely -->
+        <item name="itemRippleColor">@null</item>
+
+        <!-- Make icons larger -->
+        <item name="itemIconSize">32dp</item>
+
+        <!-- Center icons vertically -->
+        <item name="itemPaddingTop">8dp</item>
+        <item name="itemPaddingBottom">8dp</item>
+
+        <!-- Optional: remove text labels -->
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+</resources>

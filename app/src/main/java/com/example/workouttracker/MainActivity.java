@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Find the BottomNavView
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.homeFragment,
+                R.id.workoutsFragment,
+                R.id.progressFragment,
+                R.id.accountFragment
+        ).build();
 
         // Connect the bottom nav to nav Controller
         NavigationUI.setupWithNavController(bottomNav, navController);
