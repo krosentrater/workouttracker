@@ -1,4 +1,4 @@
-package com.example.workouttracker;
+package com.example.workouttracker.main;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.View;
+
+import com.example.workouttracker.R;
 
 
 public class ProgressFragment extends Fragment {
