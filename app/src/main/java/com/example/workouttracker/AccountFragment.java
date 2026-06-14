@@ -6,10 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
+import androidx.navigation.fragment.NavHostFragment;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -23,6 +22,9 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ImageButton back = view.findViewById(R.id.backBtn);
+        back.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
 
         view.findViewById(R.id.btnEditProfile).setOnClickListener(v -> {
             Toast.makeText(requireContext(), "Edit Profile Clicked", Toast.LENGTH_SHORT).show();

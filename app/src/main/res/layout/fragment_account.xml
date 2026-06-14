@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#101010"
@@ -10,14 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Back Arrow -->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="32dp"
+            android:layout_height="45dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back_arrow"
+            android:padding="4dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@android:color/white" />
+
         <ImageView
             android:id="@+id/accountAvatar"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_account_circle"
-            android:tint="@android:color/white"
-            android:padding="8dp" />
+            android:padding="8dp"
+            app:tint="@android:color/white" />
 
         <TextView
             android:id="@+id/accountName"
