@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.workouttracker.auth.AuthActivity;
 
 public class AccountFragment extends Fragment {
 

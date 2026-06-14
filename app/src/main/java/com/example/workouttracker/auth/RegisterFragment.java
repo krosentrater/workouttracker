@@ -1,4 +1,4 @@
-package com.example.workouttracker;
+package com.example.workouttracker.auth;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,11 +18,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.workouttracker.R;
 import com.example.workouttracker.util.DateUtils;
 import com.example.workouttracker.util.PickerStyle;
-
-import java.lang.reflect.Field;
-import java.util.Calendar;
 
 public class RegisterFragment extends Fragment {
 
