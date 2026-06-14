@@ -1,4 +1,4 @@
-package com.example.workouttracker.main;
+package com.example.workouttracker.ui.main;
 
 import android.os.Bundle;
 

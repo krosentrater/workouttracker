@@ -1,4 +1,4 @@
-package com.example.workouttracker.main;
+package com.example.workouttracker.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.workouttracker.R;
-import com.example.workouttracker.auth.AuthActivity;
+import com.example.workouttracker.ui.auth.AuthActivity;
 
 public class AccountFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.workouttracker.auth;
+package com.example.workouttracker.ui.auth;
 
 import android.os.Bundle;
 

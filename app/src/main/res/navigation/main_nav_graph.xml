@@ -8,7 +8,7 @@
     <!-- HOME -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.workouttracker.main.HomeFragment"
+        android:name="com.example.workouttracker.ui.main.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
 
@@ -25,21 +25,21 @@
     <!-- WORKOUTS -->
     <fragment
         android:id="@+id/workoutsFragment"
-        android:name="com.example.workouttracker.main.WorkoutsFragment"
+        android:name="com.example.workouttracker.ui.main.WorkoutsFragment"
         android:label="Workouts"
         tools:layout="@layout/fragment_workouts" />
 
     <!-- PROGRESS -->
     <fragment
         android:id="@+id/progressFragment"
-        android:name="com.example.workouttracker.main.ProgressFragment"
+        android:name="com.example.workouttracker.ui.main.ProgressFragment"
         android:label="Progress"
         tools:layout="@layout/fragment_progress" />
 
     <!-- ACCOUNT -->
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.workouttracker.main.AccountFragment"
+        android:name="com.example.workouttracker.ui.main.AccountFragment"
         android:label="Account"
         tools:layout="@layout/fragment_account" />
 
