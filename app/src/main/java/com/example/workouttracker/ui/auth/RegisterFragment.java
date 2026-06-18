@@ -1,5 +1,6 @@
 package com.example.workouttracker.ui.auth;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,13 +17,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.workouttracker.MainActivity;
 import com.example.workouttracker.R;
+import com.example.workouttracker.data.model.User;
+import com.example.workouttracker.util.CalculateAge;
 import com.example.workouttracker.util.DateUtils;
 import com.example.workouttracker.util.PickerStyle;
 
 public class RegisterFragment extends Fragment {
+
+    private AuthViewModel authViewModel;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -36,6 +44,9 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        authViewModel = new ViewModelProvider((ViewModelStoreOwner) this, new AuthViewModelFactory()).get(AuthViewModel.class);
+
 
         // Back Button
         ImageButton backArrow = view.findViewById(R.id.backButtonLogin);
@@ -79,28 +90,44 @@ public class RegisterFragment extends Fragment {
 
 
         Button createAccount = view.findViewById(R.id.btnCreateAccount);
-
-        //Convert to single height
-        int feet = feetPicker.getValue();
-        int inches = inchPicker.getValue();
-
-        int totalHeight = (feet * 12) + inches;
-
         createAccount.setOnClickListener(v -> {
+
+            String emailStr = username.getText().toString().trim() + "@wt.com"; // Temp workaround email field needed
+            String passwordStr = password.getText().toString().trim();
+
+            //Convert to single height
+            int feet = feetPicker.getValue();
+            int inches = inchPicker.getValue();
+            int totalHeight = (feet * 12) + inches;
 
             // Convert birthday to epoch millis format
             long birthdayMillis = DateUtils.datePickerToEpoch(birthdayPicker);
-            Toast.makeText(requireContext(), "Account Created", Toast.LENGTH_SHORT).show();
 
-            // TODO: Save to Room database
-            // User user = new User(
-            //      firstName.getText().toString(),
-            //      lastName.getText().toString(),
-            //      username.getText().toString(),
-            //      birthdayMillis,
-            //      Float.parseFloat(weight.getText().toString()),
-            //      Float.parseFloat(height.getText().toString())
-            // );
+            User user = new User();
+            user.email = emailStr;
+            user.username = username.getText().toString().trim();
+            user.weight = Float.parseFloat(weight.getText().toString());
+            user.height = totalHeight;
+            user.age = CalculateAge.calculateAge(birthdayMillis);
+
+            authViewModel.register(emailStr, passwordStr, user);
+
         });
+
+        observeViewModel();
+    }
+
+    private void observeViewModel() {
+        authViewModel.getRegisterSuccess().observe(getViewLifecycleOwner(), success -> {
+            if (success) {
+                Toast.makeText(requireContext(), "Account Created!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(requireActivity(), MainActivity.class));
+                requireActivity().finish();
+            }
+        });
+
+        authViewModel.getErrorMessage().observe(getViewLifecycleOwner(), error ->
+                Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
+        );
     }
 }
