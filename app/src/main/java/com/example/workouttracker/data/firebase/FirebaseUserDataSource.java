@@ -5,6 +5,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.BuildConfig;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Objects;
 
@@ -52,5 +53,13 @@ public class FirebaseUserDataSource {
         return db.collection("users")
                 .document(user.uid)
                 .set(user);
+    }
+
+    // Lookup by username
+    public Task<QuerySnapshot> getUserByUsername(String username) {
+        return db.collection("users")
+                .whereEqualTo("username", username)
+                .limit(1)
+                .get();
     }
 }

@@ -20,6 +20,8 @@ public class WorkoutTrackerApp extends Application {
         FirebaseApp.initializeApp(this);
         Log.e("APP", "Firebase initialized");
 
+        FirebaseAuth.getInstance().signOut();
+
         // Now bind the emulator BEFORE anything else touches Firebase
         FirebaseAuth auth = FirebaseAuth.getInstance();
         Log.e("APP", "Auth instance created");

@@ -12,7 +12,7 @@ public class FirebaseAuthManager {
     // Initialize Firebase Auth
     private final FirebaseAuth auth;
 
-    // Emulator Config for testing Firebase logic *firebase emulators:start* firebase emulators to start
+    // Emulator Config for testing Firebase logic *firebase emulators:start*
     public FirebaseAuthManager() {
         auth = FirebaseAuth.getInstance();
         if (BuildConfig.DEBUG) {

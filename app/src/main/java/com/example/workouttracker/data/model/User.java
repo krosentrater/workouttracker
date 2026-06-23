@@ -6,7 +6,9 @@ public class User {
     public String uid;
     public String email;
     public String username;
-    public int age;
+    public String firstName;
+    public String lastName;
+    public long age;
     public float height;
     public float weight;
     public String photoUrl;
@@ -18,10 +20,12 @@ public class User {
         this.email = email;
     }
 
-    public User(String uid, String email, String username, int age, float height, float weight, String photoUrl) {
+    public User(String uid, String email, String username, String firstName, String lastName, long age, float height, float weight, String photoUrl) {
         this.uid = uid;
         this.email = email;
         this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.height = height;
         this.weight = weight;
