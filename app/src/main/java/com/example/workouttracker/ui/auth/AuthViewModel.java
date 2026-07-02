@@ -45,8 +45,8 @@ public class AuthViewModel extends ViewModel {
 
     public void loginWithUsername(String username, String password) {
         userRepository.loginWithUsername(username, password)
-                .addOnSuccessListener(authResult -> loginSuccess.postValue(true))
-                .addOnFailureListener(e -> errorMessage.postValue(e.getMessage()));
+                .addOnSuccessListener(authResult -> loginSuccess.setValue(true))
+                .addOnFailureListener(e -> errorMessage.setValue(e.getMessage()));
     }
 
 

@@ -3,10 +3,8 @@ package com.example.workouttracker.data.repository;
 import com.example.workouttracker.data.firebase.FirebaseAuthManager;
 import com.example.workouttracker.data.firebase.FirebaseUserDataSource;
 import com.example.workouttracker.data.model.User;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
-import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 
