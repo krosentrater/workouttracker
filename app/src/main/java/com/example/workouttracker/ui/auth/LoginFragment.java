@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ import com.example.workouttracker.R;
 public class LoginFragment extends Fragment {
 
     private AuthViewModel authViewModel;
+    private FrameLayout loadingOverlay;
+    private Button btnLogin;
 
     public LoginFragment() {
         super(R.layout.fragment_login);
@@ -34,8 +37,10 @@ public class LoginFragment extends Fragment {
 
         EditText usernameInput = view.findViewById(R.id.editUsername);
         EditText passwordInput = view.findViewById(R.id.editPassword);
-        Button btnLogin = view.findViewById(R.id.btnLogin);
+        btnLogin = view.findViewById(R.id.btnLogin);
         TextView textRegister = view.findViewById(R.id.registerLink);
+        loadingOverlay = view.findViewById(R.id.loadingOverlay);
+
 
         textRegister.setOnClickListener(v -> {
             NavHostFragment.findNavController(this).navigate(R.id.action_loginFragment_to_registerFragment);
@@ -55,6 +60,9 @@ public class LoginFragment extends Fragment {
                 return;
             }
 
+            loadingOverlay.setVisibility(View.VISIBLE);
+            btnLogin.setEnabled(false);
+
             authViewModel.loginWithUsername(username, password);
         });
         observeViewModel();
@@ -62,6 +70,8 @@ public class LoginFragment extends Fragment {
 
     private void observeViewModel() {
         authViewModel.getLoginSuccess().observe(getViewLifecycleOwner(), success -> {
+            loadingOverlay.setVisibility(View.GONE);
+            btnLogin.setEnabled(true);
             if (success != null && success) {
                 Intent intent = new Intent(requireActivity(), MainActivity.class);
                 startActivity(intent);
@@ -70,6 +80,8 @@ public class LoginFragment extends Fragment {
         });
 
         authViewModel.getErrorMessage().observe(getViewLifecycleOwner(), msg -> {
+            loadingOverlay.setVisibility(View.GONE);
+            btnLogin.setEnabled(true);
             if (msg != null) {
                 Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show();
             }

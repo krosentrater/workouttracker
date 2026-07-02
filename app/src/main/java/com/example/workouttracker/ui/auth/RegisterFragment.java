@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ import com.example.workouttracker.util.PickerStyle;
 public class RegisterFragment extends Fragment {
 
     private AuthViewModel authViewModel;
+    private FrameLayout loadingOverlay;
+    private Button createAccount;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -57,6 +60,8 @@ public class RegisterFragment extends Fragment {
         NumberPicker feetPicker = view.findViewById(R.id.pickerFeet);
         NumberPicker inchPicker = view.findViewById(R.id.pickerInches);
         DatePicker birthdayPicker = view.findViewById(R.id.datePickerBirthday);
+
+        loadingOverlay = view.findViewById(R.id.loadingOverlay);
 
 
         // Default values and min/max values for pickers
@@ -85,8 +90,13 @@ public class RegisterFragment extends Fragment {
         });
 
         // Create Account Button
-        Button createAccount = view.findViewById(R.id.btnCreateAccount);
+        createAccount = view.findViewById(R.id.btnCreateAccount);
         createAccount.setOnClickListener(v -> {
+
+            // Progress Bar
+            loadingOverlay.setVisibility(View.VISIBLE);
+            createAccount.setEnabled(false);
+
 
             // Read Inputs
             String emailStr = userEmail.getText().toString().trim();
@@ -145,6 +155,14 @@ public class RegisterFragment extends Fragment {
                 password.setError("Password must be at least 6 characters.");
                 return;
             }
+            if (!passwordStr.matches(".*[A-Z].*")) {
+                password.setError("Password must contain at least one uppercase letter.");
+                return;
+            }
+            if (!passwordStr.matches(".*\\d.*")) {
+                password.setError("Password must contain at least one number.");
+                return;
+            }
             // Weight
             float weightValue;
             try {
@@ -198,6 +216,8 @@ public class RegisterFragment extends Fragment {
 
     private void observeViewModel() {
         authViewModel.getRegisterSuccess().observe(getViewLifecycleOwner(), success -> {
+            loadingOverlay.setVisibility(View.GONE);
+            createAccount.setEnabled(true);
             if (success) {
                 Toast.makeText(requireContext(), "Account Created!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(requireActivity(), MainActivity.class));
@@ -205,8 +225,11 @@ public class RegisterFragment extends Fragment {
             }
         });
 
-        authViewModel.getErrorMessage().observe(getViewLifecycleOwner(), error ->
-                Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
-        );
+        authViewModel.getErrorMessage().observe(getViewLifecycleOwner(), error -> {
+            loadingOverlay.setVisibility(View.GONE);
+            createAccount.setEnabled(true);
+            Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show();
+        });
+
     }
 }
