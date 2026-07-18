@@ -9,7 +9,6 @@
     <string name="login">Login</string>
     <string name="gym_weights_background">Gym Weights Background</string>
     <string name="register_here">Don\'t have an account? Register Here</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
@@ -26,4 +25,8 @@
     <string name="workouts">Workouts</string>
     <string name="progress">Progress</string>
     <string name="account">Account</string>
+    <string name="full_name">%1$s %2$s</string>
+    <string name="weight_label">Weight: %1$.1f lbs</string>
+    <string name="height_label">Height: %1$.0f ft %2$.0f in</string>
+    <string name="age_label">Age: %1$d</string>
 </resources>

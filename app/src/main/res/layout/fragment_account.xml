@@ -42,6 +42,39 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp" />
 
+        <TextView
+            android:id="@+id/accountWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight: --"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/accountHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height: --"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/accountAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age: --"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp" />
+
         <Button
             android:id="@+id/btnEditProfile"
             android:layout_width="match_parent"

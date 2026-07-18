@@ -10,11 +10,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.workouttracker.R;
 import com.example.workouttracker.ui.auth.AuthActivity;
+import com.example.workouttracker.util.CalculateAge;
 
 public class AccountFragment extends Fragment {
 
@@ -35,11 +37,31 @@ public class AccountFragment extends Fragment {
         back.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
 
         TextView accountName = view.findViewById(R.id.accountName);
+        TextView accountWeight = view.findViewById(R.id.accountWeight);
+        TextView accountHeight = view.findViewById(R.id.accountHeight);
+        TextView accountAge = view.findViewById(R.id.accountAge);
+        ImageView profilePicture = view.findViewById(R.id.accountAvatar);
 
         // Observe user data
         accountViewModel.getUser().observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
-                accountName.setText(user.firstName + " " + user.lastName);
+                String fullName = getString(R.string.full_name, user.firstName, user.lastName);
+                accountName.setText(fullName);
+
+                // Convert height
+                float feet = user.height / 12;
+                float inches = user.height % 12;
+                accountHeight.setText(getString(R.string.height_label, feet, inches));
+
+                // Age
+                int age = CalculateAge.calculateAge(user.age);
+                accountAge.setText(getString(R.string.age_label, age));
+
+                // Weight
+                accountWeight.setText(getString(R.string.weight_label, user.weight));
+
+                // Profile Picture
+                profilePicture.setImageResource(R.drawable.ic_account_circle);
             }
         });
 
