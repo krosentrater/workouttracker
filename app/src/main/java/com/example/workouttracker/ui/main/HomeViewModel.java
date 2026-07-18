@@ -8,13 +8,13 @@ import com.example.workouttracker.data.model.User;
 import com.example.workouttracker.data.repository.UserRepository;
 import com.google.firebase.auth.FirebaseUser;
 
-public class AccountViewModel extends ViewModel {
+public class HomeViewModel extends ViewModel {
 
     private final UserRepository userRepository;
     private final MutableLiveData<User> userLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> errorLiveData = new MutableLiveData<>();
 
-    public AccountViewModel(UserRepository userRepository) {
+    public HomeViewModel(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -38,5 +38,4 @@ public class AccountViewModel extends ViewModel {
                 .addOnSuccessListener(userLiveData::setValue)
                 .addOnFailureListener(e -> errorLiveData.setValue(e.getMessage()));
     }
-
 }

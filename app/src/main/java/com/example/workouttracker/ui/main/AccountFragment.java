@@ -37,9 +37,6 @@ public class AccountFragment extends Fragment {
         back.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
 
         TextView accountName = view.findViewById(R.id.accountName);
-        TextView accountWeight = view.findViewById(R.id.accountWeight);
-        TextView accountHeight = view.findViewById(R.id.accountHeight);
-        TextView accountAge = view.findViewById(R.id.accountAge);
         ImageView profilePicture = view.findViewById(R.id.accountAvatar);
 
         // Observe user data
@@ -47,18 +44,6 @@ public class AccountFragment extends Fragment {
             if (user != null) {
                 String fullName = getString(R.string.full_name, user.firstName, user.lastName);
                 accountName.setText(fullName);
-
-                // Convert height
-                float feet = user.height / 12;
-                float inches = user.height % 12;
-                accountHeight.setText(getString(R.string.height_label, feet, inches));
-
-                // Age
-                int age = CalculateAge.calculateAge(user.age);
-                accountAge.setText(getString(R.string.age_label, age));
-
-                // Weight
-                accountWeight.setText(getString(R.string.weight_label, user.weight));
 
                 // Profile Picture
                 profilePicture.setImageResource(R.drawable.ic_account_circle);
@@ -74,6 +59,7 @@ public class AccountFragment extends Fragment {
         // Load Profile
         accountViewModel.loadUserProfile();
 
+        // TODO: Add actual edit feature for profile
         view.findViewById(R.id.btnEditProfile).setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), AuthActivity.class);
             startActivity(intent);
@@ -81,7 +67,6 @@ public class AccountFragment extends Fragment {
         });
 
         view.findViewById(R.id.btnLogout).setOnClickListener(v -> {
-            // TODO: Add real logout logic
             Intent intent = new Intent(requireActivity(), AuthActivity.class);
             startActivity(intent);
             requireActivity().finish();
